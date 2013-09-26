@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="add">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="num1" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="num2" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="addResult" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="multiply">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="num1" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="num2" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="multiplyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="multiplyResult" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="sub">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="num1" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="num2" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="subResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="subResult" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="div">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="num1" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="num2" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="divResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="divResult" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="float" type="s:float" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="addSoapIn">
+    <wsdl:part name="parameters" element="tns:add" />
+  </wsdl:message>
+  <wsdl:message name="addSoapOut">
+    <wsdl:part name="parameters" element="tns:addResponse" />
+  </wsdl:message>
+  <wsdl:message name="multiplySoapIn">
+    <wsdl:part name="parameters" element="tns:multiply" />
+  </wsdl:message>
+  <wsdl:message name="multiplySoapOut">
+    <wsdl:part name="parameters" element="tns:multiplyResponse" />
+  </wsdl:message>
+  <wsdl:message name="subSoapIn">
+    <wsdl:part name="parameters" element="tns:sub" />
+  </wsdl:message>
+  <wsdl:message name="subSoapOut">
+    <wsdl:part name="parameters" element="tns:subResponse" />
+  </wsdl:message>
+  <wsdl:message name="divSoapIn">
+    <wsdl:part name="parameters" element="tns:div" />
+  </wsdl:message>
+  <wsdl:message name="divSoapOut">
+    <wsdl:part name="parameters" element="tns:divResponse" />
+  </wsdl:message>
+  <wsdl:message name="addHttpGetIn">
+    <wsdl:part name="num1" type="s:string" />
+    <wsdl:part name="num2" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="addHttpGetOut">
+    <wsdl:part name="Body" element="tns:float" />
+  </wsdl:message>
+  <wsdl:message name="multiplyHttpGetIn">
+    <wsdl:part name="num1" type="s:string" />
+    <wsdl:part name="num2" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="multiplyHttpGetOut">
+    <wsdl:part name="Body" element="tns:float" />
+  </wsdl:message>
+  <wsdl:message name="subHttpGetIn">
+    <wsdl:part name="num1" type="s:string" />
+    <wsdl:part name="num2" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="subHttpGetOut">
+    <wsdl:part name="Body" element="tns:float" />
+  </wsdl:message>
+  <wsdl:message name="divHttpGetIn">
+    <wsdl:part name="num1" type="s:string" />
+    <wsdl:part name="num2" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="divHttpGetOut">
+    <wsdl:part name="Body" element="tns:float" />
+  </wsdl:message>
+  <wsdl:message name="addHttpPostIn">
+    <wsdl:part name="num1" type="s:string" />
+    <wsdl:part name="num2" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="addHttpPostOut">
+    <wsdl:part name="Body" element="tns:float" />
+  </wsdl:message>
+  <wsdl:message name="multiplyHttpPostIn">
+    <wsdl:part name="num1" type="s:string" />
+    <wsdl:part name="num2" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="multiplyHttpPostOut">
+    <wsdl:part name="Body" element="tns:float" />
+  </wsdl:message>
+  <wsdl:message name="subHttpPostIn">
+    <wsdl:part name="num1" type="s:string" />
+    <wsdl:part name="num2" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="subHttpPostOut">
+    <wsdl:part name="Body" element="tns:float" />
+  </wsdl:message>
+  <wsdl:message name="divHttpPostIn">
+    <wsdl:part name="num1" type="s:string" />
+    <wsdl:part name="num2" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="divHttpPostOut">
+    <wsdl:part name="Body" element="tns:float" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceSoap">
+    <wsdl:operation name="add">
+      <wsdl:input message="tns:addSoapIn" />
+      <wsdl:output message="tns:addSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="multiply">
+      <wsdl:input message="tns:multiplySoapIn" />
+      <wsdl:output message="tns:multiplySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="sub">
+      <wsdl:input message="tns:subSoapIn" />
+      <wsdl:output message="tns:subSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="div">
+      <wsdl:input message="tns:divSoapIn" />
+      <wsdl:output message="tns:divSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WebServiceHttpGet">
+    <wsdl:operation name="add">
+      <wsdl:input message="tns:addHttpGetIn" />
+      <wsdl:output message="tns:addHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="multiply">
+      <wsdl:input message="tns:multiplyHttpGetIn" />
+      <wsdl:output message="tns:multiplyHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="sub">
+      <wsdl:input message="tns:subHttpGetIn" />
+      <wsdl:output message="tns:subHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="div">
+      <wsdl:input message="tns:divHttpGetIn" />
+      <wsdl:output message="tns:divHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WebServiceHttpPost">
+    <wsdl:operation name="add">
+      <wsdl:input message="tns:addHttpPostIn" />
+      <wsdl:output message="tns:addHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="multiply">
+      <wsdl:input message="tns:multiplyHttpPostIn" />
+      <wsdl:output message="tns:multiplyHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="sub">
+      <wsdl:input message="tns:subHttpPostIn" />
+      <wsdl:output message="tns:subHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="div">
+      <wsdl:input message="tns:divHttpPostIn" />
+      <wsdl:output message="tns:divHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceSoap" type="tns:WebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="add">
+      <soap:operation soapAction="http://tempuri.org/add" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="multiply">
+      <soap:operation soapAction="http://tempuri.org/multiply" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sub">
+      <soap:operation soapAction="http://tempuri.org/sub" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="div">
+      <soap:operation soapAction="http://tempuri.org/div" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceSoap12" type="tns:WebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="add">
+      <soap12:operation soapAction="http://tempuri.org/add" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="multiply">
+      <soap12:operation soapAction="http://tempuri.org/multiply" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sub">
+      <soap12:operation soapAction="http://tempuri.org/sub" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="div">
+      <soap12:operation soapAction="http://tempuri.org/div" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceHttpGet" type="tns:WebServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="add">
+      <http:operation location="/add" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="multiply">
+      <http:operation location="/multiply" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sub">
+      <http:operation location="/sub" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="div">
+      <http:operation location="/div" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceHttpPost" type="tns:WebServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="add">
+      <http:operation location="/add" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="multiply">
+      <http:operation location="/multiply" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sub">
+      <http:operation location="/sub" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="div">
+      <http:operation location="/div" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService">
+    <wsdl:port name="WebServiceSoap" binding="tns:WebServiceSoap">
+      <soap:address location="http://localhost:54455/WebSite8/WebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceSoap12" binding="tns:WebServiceSoap12">
+      <soap12:address location="http://localhost:54455/WebSite8/WebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceHttpGet" binding="tns:WebServiceHttpGet">
+      <http:address location="http://localhost:54455/WebSite8/WebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceHttpPost" binding="tns:WebServiceHttpPost">
+      <http:address location="http://localhost:54455/WebSite8/WebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

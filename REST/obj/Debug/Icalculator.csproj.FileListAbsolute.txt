@@ -1,0 +1,4 @@
+C:\Users\sudheer\Documents\Visual Studio 2010\Projects\WcfService7\WcfService7\bin\WcfService7.dll
+C:\Users\sudheer\Documents\Visual Studio 2010\Projects\WcfService7\WcfService7\bin\WcfService7.pdb
+C:\Users\sudheer\Documents\Visual Studio 2010\Projects\WcfService7\WcfService7\obj\Debug\WcfService7.dll
+C:\Users\sudheer\Documents\Visual Studio 2010\Projects\WcfService7\WcfService7\obj\Debug\WcfService7.pdb
